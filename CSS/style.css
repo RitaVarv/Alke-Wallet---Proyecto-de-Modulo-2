@@ -1,0 +1,36 @@
+body {
+    padding: 30px;
+}
+
+/* Página Menu*/
+#subtitulo {
+    font-size: medium;
+    font-weight: lighter;
+}
+
+
+li {
+    border: 1px solid;
+    border-color: black;
+    padding: 16px;
+    list-style: none;
+}
+
+#mensaje {
+    z-index: 1050;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    border-width: 3px;
+}
+
+.popup {
+    z-index: 1050;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+width: 800px;
+}

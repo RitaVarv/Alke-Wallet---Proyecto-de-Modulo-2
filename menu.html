@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetera Digital</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-4">
+                <h1 class="text-center">Menú Principal</h1>
+
+                <!--Información de cuenta-->
+                <h2 id="subtitulo">Dinero en cuenta:</h2>
+                <h3 id="balance">$60000</h3>
+                <!--botones de página-->
+                <button id="btniradeposito" type="button" class="btn btn-primary">Depositar</button>
+                <button id="btnenviar" type="button" class="btn btn-primary">Enviar Dinero</button>
+                <button id="btnmovimientos" type="button" class="btn btn-primary">Últimos Movimientos</button>
+                <br>
+                <button type="button" id="btncompra" class="btn btn-success">Simular compra</button>
+            </div>
+        </div>
+    </div>
+    <div id="mensaje" class="alert alert-primary text-center shadow d-none" role="alert">
+        <p id="mensajetexto"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+        integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="javascript/script.js"></script>
+</body>
+
+</html>
