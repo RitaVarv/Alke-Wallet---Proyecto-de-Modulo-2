@@ -47,7 +47,7 @@ const btnmovimientos = document.getElementById("btnmovimientos")
 
 function leerSaldo() {
     const saldoGuardado = localStorage.getItem("saldo");
-        return saldoGuardado === null ? 60000: Number(saldoGuardado)
+    return saldoGuardado === null ? 60000 : Number(saldoGuardado)
 }
 
 function redirigirA(texto, destino) {
@@ -64,7 +64,7 @@ function redirigirA(texto, destino) {
 }
 
 if (balanceElemento) {
-    const saldo = leerSaldo ();
+    const saldo = leerSaldo();
     balanceElemento.textContent = `$${saldo}`;
 }
 
@@ -102,7 +102,7 @@ if (btncomprar) {
         agregarmov("compra", `Compra realizada por: $${monto}`);
         rendermov("all");
 
-        mostrarMensaje(`Compra realizada con éxito: $${monto}`, "success")
+        mostrarMensaje(`Compra realizada con éxito: $${monto}`, "warning")
 
         setTimeout(function () {
             window.location.href = ("menu.html");
@@ -115,12 +115,12 @@ if (btncomprar) {
 
 const formDeposito = document.getElementById("formDeposit");
 
-function mostrarMensaje(texto,tipo = "success") {
+function mostrarMensaje(texto, tipo = "success") {
     const mensaje = document.getElementById("mensaje");
     const mensajetexto = document.getElementById("mensajetexto")
 
-    if (!mensaje || !mensajetexto)return;
-    mensaje.classList.remove("aler-danger", "alert-priority", "alert-warning", "alert-success" )
+    if (!mensaje || !mensajetexto) return;
+    mensaje.classList.remove("aler-danger", "alert-priority", "alert-warning", "alert-success")
     mensajetexto.textContent = texto;
     mensaje.classList.add(`alert-${tipo}`)
     mensaje.classList.remove("d-none");
@@ -261,8 +261,6 @@ if (lista)
 
 
 /*Buscador de contacto */
-
-
 $("#buscar").on("input", function () {
     const buscador = $(this).val().toLowerCase()
 
@@ -273,17 +271,78 @@ $("#buscar").on("input", function () {
     });
 })
 
+$(function () {
+    const $buscar = $("#buscar");
+    const $datalist = $("#sugerenciascontacto");
+    const $lista = $("#listadecontactos");
+
+
+    if (!$buscar.length || !$lista.length || !$datalist.length) return;
+
+
+    function listasugerencias() {
+        const nombres = $lista.find(".nombreDeContacto").map(function () {
+            return $(this).text().trim();
+        }).get().filter(Boolean);
+
+
+        const seen = new Set();
+        const unicos = [];
+        nombres.forEach(n => {
+            const k = n.toLowerCase();
+            if (!seen.has(k)) {
+                seen.add(k);
+                unicos.push(n);
+            }
+        });
+
+
+        $datalist.empty();
+        unicos.forEach(n => {
+            $datalist.append(`<option value="${n}"></option>`);
+        });
+    }
+
+
+    function seleccionarContacto(nombre) {
+        const nLower = nombre.trim().toLowerCase();
+
+
+        const $item = $lista.find(".list-group-item").filter(function () {
+            return $(this).find(".nombreDeContacto").text().trim().toLowerCase() === nLower;
+        }).first();
+
+
+        if ($item.length) $item.trigger("click");
+    }
+
+    listasugerencias();
+
+    $buscar.on("input", function () {
+        const texto = $(this).val().toLowerCase();
+        $lista.find("li").each(function () {
+            const contenido = $(this).text().toLowerCase();
+            $(this).toggle(contenido.includes(texto));
+        });
+    });
+
+    $buscar.on("change", function () {
+        if (this.value.trim()) seleccionarContacto(this.value);
+    });
+});
+
+
 
 
 /* Formula de - balance */
 if (formEnviar) {
     formEnviar.addEventListener("submit", (evento) => {
         evento.preventDefault();
-    
+
 
         const montoCont = Number(inputMonto.value);
         let saldo = leerSaldo();
-    
+
         if (isNaN(montoCont) || montoCont <= 0) {
             mostrarMensaje("Ingrese un monto válido", "warning");
             return;
@@ -292,7 +351,7 @@ if (formEnviar) {
             mostrarMensaje("Saldo insuficiente para realizar la operación.", "danger");
             return;
         }
-    
+
         saldo = Math.max(0, saldo - montoCont);
         localStorage.setItem("saldo", saldo);
 
@@ -301,82 +360,83 @@ if (formEnviar) {
         agregarmov("transferencia", `transferencia enviada a ${contactoselec}: ${montoCont}`);
         mostrarMensaje("Transferencia realizada");
         rendermov("all");
-})}
+    })
+}
 
 /* Mostrar saldo*/
 
 const saldoactual = $("#mostrarsaldo")
 
-    function mostrarMonto() {
-        const saldovista = localStorage.getItem("saldo") || 0;
-        $("#mostrarsaldo").text(`Saldo disponible: $${saldovista}`);
-    }
-    $(function () {
-        mostrarMonto();
+function mostrarMonto() {
+    const saldovista = localStorage.getItem("saldo") || 0;
+    $("#mostrarsaldo").text(`Saldo disponible: $${saldovista}`);
+}
+$(function () {
+    mostrarMonto();
 
+})
+/* Barra de transferencia */
+
+if (lista)
+    lista.addEventListener("click", (e) => {
+
+        const li = e.target.closest(".list-group-item");
+        if (!li) return;
+
+        document.getElementById("barratransferencia")?.classList.remove("d-none");
     })
-    /* Barra de transferencia */
 
-    if (lista)
-        lista.addEventListener("click", (e) => {
+//* Historial de movimientos *//
 
-            const li = e.target.closest(".list-group-item");
-            if (!li) return;
+const movimientosrecord = "movimientos"
 
-            document.getElementById("barratransferencia")?.classList.remove("d-none");
-        })
+function agregarmov(tipo, texto) {
+    const movs = JSON.parse(localStorage.getItem(movimientosrecord) || "[]");
 
-    //* Historial de movimientos *//
+    movs.push({
+        tipo,
+        texto,
+        fecha: Date.now()
+    });
 
-    const movimientosrecord = "movimientos"
+    localStorage.setItem(movimientosrecord, JSON.stringify(movs));
+}
 
-    function agregarmov(tipo, texto) {
-        const movs = JSON.parse(localStorage.getItem(movimientosrecord) || "[]");
+function rendermov(filtro = "all") {
+    const $ul = $("#listamovimientos");
+    if ($ul.length === 0) return;
 
-        movs.push({
-            tipo,
-            texto,
-            fecha: Date.now()
-        });
+    const movs = JSON.parse(localStorage.getItem(movimientosrecord) || "[]");
 
-        localStorage.setItem(movimientosrecord, JSON.stringify(movs));
+    let filtros = movs;
+    if (filtro !== "all") {
+        filtros = movs.filter(m => m.tipo === filtro);
     }
 
-    function rendermov(filtro = "all") {
-        const $ul = $("#listamovimientos");
-        if ($ul.length === 0) return;
+    $ul.empty();
 
-        const movs = JSON.parse(localStorage.getItem(movimientosrecord) || "[]");
-
-        let filtros = movs;
-        if (filtro !== "all") {
-            filtros = movs.filter(m => m.tipo === filtro);
-        }
-
-        $ul.empty();
-
-        if (filtros.length === 0) {
-            $ul.append(`
+    if (filtros.length === 0) {
+        $ul.append(`
             <li class="list-group-item text-muted"> No se han realizado movimientos.</li>`);
-            return;
-        }
-        filtros
-            .reverse()
-            .slice(0, 10)
-            .forEach(m => {
-                const fecha = new Date(m.fecha).toLocaleString("es-CL");
+        return;
+    }
+    filtros
+        .reverse()
+        .slice(0, 10)
+        .forEach(m => {
+            const fecha = new Date(m.fecha).toLocaleString("es-CL");
 
-                $ul.append(`
+            $ul.append(`
             <li class="list-group-item"> 
             ${fecha} - ${m.texto}
             </li>`);
-            });
-    }
-
-    $(function () {
-        rendermov($("#movTipo").val());
-
-        $("#movTipo").on("change", function () {
-            rendermov($(this).val());
         });
-    })
+}
+
+$(function () {
+    rendermov($("#movTipo").val());
+
+    $("#movTipo").on("change", function () {
+        rendermov($(this).val());
+    });
+})
