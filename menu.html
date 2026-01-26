@@ -5,6 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Billetera Digital</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
         integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
 
@@ -13,23 +19,25 @@
 
 <body>
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-4">
-                <h1 class="text-center">Menú Principal</h1>
-
-                <!--Información de cuenta-->
-                <h2 id="subtitulo">Dinero en cuenta:</h2>
-                <h3 id="balance">$60000</h3>
-                <!--botones de página-->
+    <nav class="container">
+        <div class="card row justify-content-center shadow-lg">
+            <h1 class="text-center">Menú Principal</h1>
+            <nav class="navbar">
                 <button id="btniradeposito" type="button" class="btn btn-primary">Depositar</button>
                 <button id="btnenviar" type="button" class="btn btn-primary">Enviar Dinero</button>
                 <button id="btnmovimientos" type="button" class="btn btn-primary">Últimos Movimientos</button>
                 <br>
                 <button type="button" id="btncompra" class="btn btn-success">Simular compra</button>
+            </nav>
+            <div class="col justify-content-center text-center">
+                
+                <!--botones de página-->
+                <!--Información de cuenta-->
+                <h2 id="infobalance">Saldo en cuenta</h2>
+                <h3 id="balance">$60000</h3>
             </div>
         </div>
-    </div>
+    </nav>
     <div id="mensaje" class="alert alert-primary text-center shadow d-none" role="alert">
         <p id="mensajetexto"></p>
     </div>
