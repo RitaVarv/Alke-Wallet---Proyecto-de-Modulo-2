@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetera Digital</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row ">
+            <div class="card col justify-content-center shadow-lg">
+                <h1 class="text-center">Depositar</h1>
+                <!--formulario-->
+                <form id="formDeposit">
+                    <div class="infodeposit mb-3">
+                        <div id="mostrarsaldo"></div>
+                        <label for="monto">Monto a depositar</label>
+                        <input type="number" class="form-control" id="monto" placeholder="Ingrese el monto" required>
+                        <p id="ultimodeposito"></p>
+                    </div>
+                    <div id="alertadeposito" class=""></div>
+                   <nav class="navbar">
+                    <button type="submit" id="btnhacerdeposito" class="btn btn-success">Realizar depósito</button>
+                    <a href="menu.html" class="btn btn-secondary">Volver al menu principal</a>
+                    </nav> 
+                </form>
+                <!--botón de regreso al menu-->
+            </div>
+        </div>
+    </div>
+    <div id="mensaje" class="alert alert-primary text-center shadow d-none" role="alert">
+        <p id="mensajetexto"></p>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+    integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="javascript/utilidades.js"></script>
+    <script src="javascript/localStorage.js"></script>
+    <script src="javascript/deposit.js"></script>
+</body>
+
+</html>

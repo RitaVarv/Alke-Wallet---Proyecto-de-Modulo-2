@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Billetera Digital</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&display=swap"
+        rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Oswald:wght@200..700&family=Roboto+Flex:opsz,wght,XOPQ,XTRA,YOPQ,YTDE,YTFI,YTLC,YTUC@8..144,100..1000,96,468,79,-203,738,514,712&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+        integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="CSS/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row ">
+            <div class="card col justify-content-center shadow-lg">
+                <h1 class="text-center">Enviar Dinero</h1>
+
+                <!--formulario busqueda-->
+                <form>
+                    <div class="mb-3 id="barrabusqueda">
+                        <label for="buscar">Buscar Contacto en la agenda</label>
+                        <input type="search" class="form-control" id="buscar" list="sugerenciascontacto" placeholder="Buscar Contacto">
+                        <datalist id="sugerenciascontacto"></datalist>
+                    </div>
+
+                    <button type="button" id="btnagregar" class="btn btn-primary">Agregar nuevo contacto</button>
+
+                    <!--Lista de contactos-->
+                    <h2 class="text-center">Contactos</h2>
+                    <ul id="listadecontactos" class="list-group mb-3">
+                        <li class="list-group-item">
+                            <div class="infoContacto">
+                                <span class="nombreDeContacto"> John Doe</span>
+                                <span class="detallesDeContacto">CBU: 123456789, Alias: john.doe, Banco: ABC Bank</span>
+                            </div>
+
+                        </li>
+                        <li class="list-group-item">
+                            <div class="infoContacto">
+                                <span class="nombreDeContacto"> Soledad Perez</span>
+                                <span class="detallesDeContacto">CBU:987654321, Alias: Soledad, Banco: XYZ Bank</span>
+                            </div>
+                        </li>
+                    </ul>
+                </form>
+                <!--Formulario de envio de dinero a contacto-->
+                <form id="enviocontacto">
+                    <div class="card p-3 d-none" id="barratransferencia">
+                        <label for="montoenviar">Ingrese el monto a enviar</label>
+                        <input type="number" class="form-control" id="montoenviar" placeholder="$0">
+                        <button type="submit" class="btn btn-primary w-100" id="btntransferir"> Realizar transferencia
+                        </button>
+                    </div>
+                    <!--botón de regreso al menu-->
+                    <a href="menu.html" class="btn btn-secondary w-100">Volver al menu principal</a>
+                </form>
+            </div>
+            
+            
+            <div id="mensaje" class="alert alert-primary text-center shadow d-none" role="alert">
+                <p id="mensajetexto"></p>
+            </div>
+        </div>
+        <!--Formulario de ingreso de contacto-->
+        <form id="ingresodecontacto" class="popup d-none shadow">
+            <div class="col p-3">
+                <h1 class="text-center">Ingrese datos de contacto</h1>
+                <label for="nombrecontacto">Nombre del contacto</label>
+                <input type="text" class="form-control" id="nombrecontacto"
+                    placeholder="Ingrese el nombre del contacto" required>
+                <label for="CBU">Número de CBU</label>
+                <input type="number" class="form-control" id="CBU" placeholder="Ingrese el número CBU" required>
+                <label for="alias">Alias</label>
+                <input type="text" class="form-control" id="alias" placeholder="Ingrese un alias" required>
+                <label for="nombrebanco">Nombre del banco</label>
+                <input type="text" class="form-control" id="nombrebanco" placeholder="Ingrese el nombre del banco"required>
+                <button type="submit" class="btn btn-primary" id="btningresar">Ingresar contacto</button>
+                <button type="button" class="btn btn-secondary" id="btncierre">Cerrar</button>
+            </div>
+    
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-4.0.0.js"
+    integrity="sha256-9fsHeVnKBvqh3FB2HYu7g2xseAZ5MlN6Kz/qnkASV8U=" crossorigin="anonymous"></script>
+    <script src="javascript/utilidades.js"></script>
+     <script src="javascript/localStorage.js"></script>
+    <script src="javascript/sendmoney.js"></script>
+</body>
+
+</html>
