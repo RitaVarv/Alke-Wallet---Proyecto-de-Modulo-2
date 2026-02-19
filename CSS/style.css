@@ -1,24 +1,39 @@
+
+:root  {
+    --color-card: #dff5ed;
+    --color-titulos: #79dab1;
+    --color-nav: #1c76fd;
+    --color-footer:#0cb0b6;
+}
 body {
-    padding: 40px;
-    margin: 0px;
+    padding: 0px;
+    margin-top: 0px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
     font-family: "Noto Serif", serif;
     background-image: url("https://4kwallpapers.com/images/wallpapers/soft-gradient-3840x2160-20099.jpg")
     
 }
+main {
+    flex: 1;
+    width: 100%;
+}
 .card {
-    margin: 0 auto;
+    margin-top: 20px;
     padding: 20px;
     max-width: 650px;
     border-style: solid;
     border-width: 2px;
-    border-color: rgb(37, 88, 73);
-    background-color: #dff5ed;
+    border-color: #255849;
+    background-color: var(--color-card);
 }
 
 /*Estilo Login*/
 
 h1 {
-    background-color: #79dab1;
+    background-color: var(--color-titulos);
     font-size: 36px;
     font-family: "Roboto Flex", sans-serif;
     text-align: center;
@@ -27,12 +42,12 @@ h1 {
 
 /*Estilo Menu*/
 
-.navbar {
+.menu {
     display: flex;
     justify-content: space-between;
     gap: 2px;
     flex-wrap: nowrap;
-    background-color: #1c76fd;
+    margin-top: 15px;
 }
 
 #infobalance {
@@ -63,7 +78,6 @@ h1 {
     font-weight: bold;
 }
 
-
 /* estilo lista de movimientos */
 li {
     border: 1px solid;
@@ -83,7 +97,7 @@ li {
 }
 /*Estilo Send Money*/
 .popup {
-    background-color: #dff5ed;
+    background-color: var(--color-card);
     border-style: solid;
     border-color: rgb(37, 88, 73);
     border-width: 2px;
@@ -97,4 +111,12 @@ li {
 }
 .popup button {
     margin-top: 10px;
+}
+
+footer {
+    background-color: var(--color-footer);
+    width: 100%;
+    margin: auto;
+    text-align: center;
+    padding: 15px;
 }

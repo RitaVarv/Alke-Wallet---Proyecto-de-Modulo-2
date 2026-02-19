@@ -1,7 +1,5 @@
 /* Función para agregar al historial*/
 
-
-
 function agregarmov(tipo, texto) {
     const movs = JSON.parse(localStorage.getItem(movimientosrecord) || "[]");
 
