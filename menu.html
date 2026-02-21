@@ -72,12 +72,24 @@
                         <!--Información de cuenta-->
               <h2 id="infobalance">Saldo en cuenta</h2>
               <h3 id="balance">$60000</h3>
-              <div
-                id="mensaje"
-                class="alert alert-primary text-center shadow d-none"
-                role="alert"
-              >
-                <p id="mensajetexto"></p>
+              <!--Notificacion de redireccion-->
+              <div>
+                <div
+                  class="modal fade"
+                  id="mensaje"
+                  tabindex="-1"
+                  data-backdrop="false"
+                  aria-labelledby="exampleModalLabel"
+                  aria-hidden="true"
+                >
+                  <div class="modal-dialog">
+                    <div class="modal-content redirect">
+                      <div class="modal-body">
+                        <p id="mensajetexto" class="text-center">Redirigiendo</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

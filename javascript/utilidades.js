@@ -1,23 +1,20 @@
 /*Función de mensajes */
 
-function mostrarMensaje(texto, tipo = "success") {
+function mostrarMensaje(texto) {
   const mensaje = document.getElementById("mensaje");
   const mensajetexto = document.getElementById("mensajetexto");
 
-  if (!mensaje || !mensajetexto) return;
-  mensaje.classList.remove(
-    "aler-danger",
-    "alert-priority",
-    "alert-warning",
-    "alert-success",
-  );
+  if (!mensaje) return;
+  
   mensajetexto.textContent = texto;
-  mensaje.classList.add(`alert-${tipo}`);
-  mensaje.classList.remove("d-none");
-
+  
+  $("#mensaje").modal({
+    backdrop:false,
+    show:true
+  });
   setTimeout(() => {
-    mensaje.classList.add("d-none");
-  }, 1000);
+  $("#mensaje").modal("hide");
+  }, 1500);
 }
 
 /* Función de saldo */

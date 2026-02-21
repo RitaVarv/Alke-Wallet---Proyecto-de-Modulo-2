@@ -27,15 +27,37 @@
       <nav class="navbar navbar-expand-lg">
         <span>Alke Wallet</span>
         <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#mainNav">
-         <svg id="logo-14" width="73" height="49" viewBox="0 0 73 49" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M46.8676 24C46.8676 36.4264 36.794 46.5 24.3676 46.5C11.9413 46.5 1.86765 36.4264 1.86765 24C1.86765 11.5736 11.9413 1.5 24.3676 1.5C36.794 1.5 46.8676 11.5736 46.8676 24Z" class="ccustom" fill="#68DBFF"></path> <path d="M71.1324 24C71.1324 36.4264 61.1574 46.5 48.8529 46.5C36.5484 46.5 26.5735 36.4264 26.5735 24C26.5735 11.5736 36.5484 1.5 48.8529 1.5C61.1574 1.5 71.1324 11.5736 71.1324 24Z" class="ccompli1" fill="#FF7917"></path> <path d="M36.6705 42.8416C42.8109 38.8239 46.8676 31.8858 46.8676 24C46.8676 16.1144 42.8109 9.17614 36.6705 5.15854C30.5904 9.17614 26.5735 16.1144 26.5735 24C26.5735 31.8858 30.5904 38.8239 36.6705 42.8416Z" class="ccompli2" fill="#5D2C02"></path> </svg>
+          <svg id="logo-14" width="73" height="49" viewBox="0 0 73 49" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M46.8676 24C46.8676 36.4264 36.794 46.5 24.3676 46.5C11.9413 46.5 1.86765 36.4264 1.86765 24C1.86765 11.5736 11.9413 1.5 24.3676 1.5C36.794 1.5 46.8676 11.5736 46.8676 24Z"
+              class="ccustom"
+              fill="#68DBFF"
+            ></path>
+            <path
+              d="M71.1324 24C71.1324 36.4264 61.1574 46.5 48.8529 46.5C36.5484 46.5 26.5735 36.4264 26.5735 24C26.5735 11.5736 36.5484 1.5 48.8529 1.5C61.1574 1.5 71.1324 11.5736 71.1324 24Z"
+              class="ccompli1"
+              fill="#FF7917"
+            ></path>
+            <path
+              d="M36.6705 42.8416C42.8109 38.8239 46.8676 31.8858 46.8676 24C46.8676 16.1144 42.8109 9.17614 36.6705 5.15854C30.5904 9.17614 26.5735 16.1144 26.5735 24C26.5735 31.8858 30.5904 38.8239 36.6705 42.8416Z"
+              class="ccompli2"
+              fill="#5D2C02"
+            ></path>
+          </svg>
         </button>
         <div class="collapse navbar-collapse" id="mainNav">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item"><a href="#" class="nav-link">Inicio</a></li>
             <li class="nav-item"><a href="#" class="nav-link">Mi Perfil</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Solicitudes</a></li>
-            <li class="nav-item"><a href="#" class="nav-link">Contactanos</a></li>
-            <li class="nav-item" id="cerrarSesion"><a href="index.html" class="nav-link">Cerrar sesión</a></li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Solicitudes</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">Contactanos</a>
+            </li>
+            <li class="nav-item" id="cerrarSesion">
+              <a href="index.html" class="nav-link">Cerrar sesión</a>
+            </li>
           </ul>
         </div>
       </nav>
@@ -43,137 +65,122 @@
 
     <main>
       <div class="container">
-      <div class="row justify-content-center">
-        <div class="col 12 col-md-8">
-          <div class="card shadow-lg p-3">
-            <h1 class="text-center">Enviar Dinero</h1>
+        <div class="row justify-content-center">
+          <div class="col 12 col-md-8">
+            <div class="card shadow-lg p-3">
+              <h1 class="text-center">Enviar Dinero</h1>
 
-            <!--Busqueda de contactos-->
-            <section>
-              <h2 class="text-center">Buscar contactos</h2>
-              <div class="mb-3" id="barrabusqueda">
-                <label for="buscar">Buscar Contacto en la agenda</label>
-                <input
-                  type="search"
-                  class="form-control"
-                  id="buscar"
-                  list="sugerenciascontacto"
-                  placeholder="Buscar Contacto"
-                />
-                <datalist id="sugerenciascontacto"></datalist>
-              </div>
-              <button type="button" id="btnagregar" class="btn btn-primary">
-                Agregar nuevo contacto
-              </button>
-            </section>
-            <!--Lista de contactos-->
-            <section>
-              <h2 class="text-center">Contactos</h2>
-              <ul id="listadecontactos" class="list-group mb-3">
-                <li class="list-group-item">
-                  <div class="infoContacto">
-                    <span class="nombreDeContacto"> John Doe</span>
-                    <span class="detallesDeContacto"
-                      >CBU: 123456789, Alias: john.doe, Banco: ABC Bank</span
-                    >
-                  </div>
-                </li>
-                <li class="list-group-item">
-                  <div class="infoContacto">
-                    <span class="nombreDeContacto"> Soledad Perez</span>
-                    <span class="detallesDeContacto"
-                      >CBU:987654321, Alias: Soledad, Banco: XYZ Bank</span
-                    >
-                  </div>
-                </li>
-              </ul>
-            </section>
-
-            <!--Formulario de envio de dinero a contacto-->
-
-            <section>
-              <form id="enviocontacto">
-                <div class="card p-3 d-none" id="barratransferencia">
-                  <h2 class="text-center">Transferencia</h2>
-                  <label for="montoenviar">Ingrese el monto a enviar</label>
+              <!--Busqueda de contactos-->
+              <section>
+                <h2 class="text-center">Buscar contactos</h2>
+                <div class="mb-3" id="barrabusqueda">
+                  <label for="buscar">Buscar Contacto en la agenda</label>
                   <input
-                    type="number"
+                    type="search"
                     class="form-control"
-                    id="montoenviar"
-                    placeholder="$0"
+                    id="buscar"
+                    list="sugerenciascontacto"
+                    placeholder="Buscar Contacto"
                   />
-                  <button
-                    type="submit"
-                    class="btn btn-primary w-100"
-                    id="btntransferir"
-                  >
-                    Realizar transferencia
-                  </button>
+                  <datalist id="sugerenciascontacto"></datalist>
                 </div>
-              </form>
-            </section>
+                <button
+                  type="button"
+                  id="btnagregar"
+                  class="btn btn-primary"
+                  data-toggle="modal"
+                  data-target="#exampleModal"
+                >
+                  Agregar nuevo contacto
+                </button>
+              </section>
+              <!--Lista de contactos-->
+              <section>
+                <h2 class="text-center">Contactos</h2>
+                <ul id="listadecontactos" class="list-group mb-3">
+                  <li class="list-group-item">
+                    <div class="infoContacto">
+                      <span class="nombreDeContacto"> John Doe</span>
+                      <span class="detallesDeContacto">CBU: 123456789, Alias: john.doe, Banco: ABC Bank</span>
+                    </div>
+                  </li>
+                  <li class="list-group-item">
+                    <div class="infoContacto">
+                      <span class="nombreDeContacto"> Soledad Perez</span>
+                      <span class="detallesDeContacto">CBU:987654321, Alias: Soledad, Banco: XYZ Bank</span>
+                    </div>
+                  </li>
+                </ul>
+              </section>
 
-            <!--botón de regreso al menu-->
-            <a href="menu.html" class="btn btn-secondary w-100"
-              >Volver al menu principal</a
-            >
-            <div
-              id="mensaje"
-              class="alert alert-primary text-center shadow d-none"
-              role="alert"
-            >
-              <p id="mensajetexto"></p>
+              <!--Formulario de envio de dinero a contacto-->
+
+              <section>
+                <form id="enviocontacto">
+                  <div class="card p-3 d-none" id="barratransferencia">
+                    <h2 class="text-center">Transferencia</h2>
+                    <label for="montoenviar">Ingrese el monto a enviar</label>
+                    <div id="alerta" class="alert d-none" role="alert">Ingrese un monto valido</div>
+                    <input type="number" class="form-control" id="montoenviar" placeholder="$0" />
+                    <button type="submit" class="btn btn-primary w-100" id="btntransferir">
+                      Realizar transferencia
+                    </button>
+                  </div>
+                </form>
+              </section>
+
+              <!--botón de regreso al menu-->
+              <a href="menu.html" class="btn btn-secondary w-100">Volver al menu principal</a>
             </div>
-          </div>
           </div>
         </div>
 
         <!--Formulario de ingreso de contacto-->
 
         <section>
-          <form id="ingresodecontacto" class="popup d-none shadow">
-            <div class="col p-3">
-              <h2 class="text-center">Ingrese datos de contacto</h2>
-              <label for="nombrecontacto">Nombre del contacto</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombrecontacto"
-                placeholder="Ingrese el nombre del contacto"
-                required
-              />
-              <label for="CBU">Número de CBU</label>
-              <input
-                type="number"
-                class="form-control"
-                id="CBU"
-                placeholder="Ingrese el número CBU"
-                required
-              />
-              <label for="alias">Alias</label>
-              <input
-                type="text"
-                class="form-control"
-                id="alias"
-                placeholder="Ingrese un alias"
-                required
-              />
-              <label for="nombrebanco">Nombre del banco</label>
-              <input
-                type="text"
-                class="form-control"
-                id="nombrebanco"
-                placeholder="Ingrese el nombre del banco"
-                required
-              />
-              <button type="submit" class="btn btn-primary" id="btningresar">
-                Ingresar contacto
-              </button>
-              <button type="button" class="btn btn-secondary" id="btncierre">
-                Cerrar
-              </button>
+          <div
+            class="modal fade"
+            id="exampleModal"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="true"
+          >
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-body">
+                  <form id="ingresodecontacto">
+                    <div class="col p-3">
+                      <h2 class="text-center">Ingrese datos de contacto</h2>
+                      <label for="nombrecontacto">Nombre del contacto</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombrecontacto"
+                        placeholder="Ingrese el nombre del contacto"
+                        required
+                      />
+                      <label for="CBU">Número de CBU</label>
+                      <input type="number" class="form-control" id="CBU" placeholder="Ingrese el número CBU" required />
+                      <label for="alias">Alias</label>
+                      <input type="text" class="form-control" id="alias" placeholder="Ingrese un alias" required />
+                      <label for="nombrebanco">Nombre del banco</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="nombrebanco"
+                        placeholder="Ingrese el nombre del banco"
+                        required
+                      />
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                  <button type="button" class="btn btn-primary">Agregar contacto</button>
+                </div>
+              </div>
             </div>
-          </form>
+          </div>
         </section>
       </div>
     </main>

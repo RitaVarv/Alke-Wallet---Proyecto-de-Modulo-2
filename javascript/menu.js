@@ -8,16 +8,18 @@ const btnmovimientos = document.getElementById("btnmovimientos");
 
 
 function redirigirA(texto, destino) {
-  const mensaje = document.getElementById("mensaje");
+   const mensaje = document.getElementById("mensaje");
   const mensajetexto = document.getElementById("mensajetexto");
 
-  if (!mensaje || !mensajetexto) return;
+  if (!mensaje) return;
+  
   mensajetexto.textContent = texto;
-  mensaje.classList.remove("d-none");
-
+  
+  $("#mensaje").modal("show");
   setTimeout(() => {
+    $("#mensaje").modal("hide");
     window.location.href = destino;
-  }, 500);
+  }, 1000);
 }
 
 if (balanceElemento) {
@@ -49,7 +51,7 @@ btncomprar.addEventListener("click", () => {
   let saldo = Number(localStorage.getItem("saldo")) || 60000;
 
   if (monto > saldo || saldo === 60000) {
-    mostrarMensaje("Saldo insuficiente para realizar la compra", "danger");
+    mostrarMensaje("Saldo insuficiente para realizar la compra");
     return;
   }
   saldo = Math.max(0, saldo - monto);

@@ -12,30 +12,7 @@ const nombrecontacto = document.getElementById("nombrecontacto");
 const cbunumero = document.getElementById("CBU");
 const alias = document.getElementById("alias");
 const nombrebanco = document.getElementById("nombrebanco");
-
-/*PopUp de crear Contacto*/
-
-const btnagregar = document.getElementById("btnagregar");
-const popup = document.getElementById("ingresodecontacto");
-if (btnagregar) {
-  btnagregar.addEventListener("click", () => {
-    abrirpopupcontactonuevo();
-
-    function abrirpopupcontactonuevo() {
-      if (!popup) return;
-
-      popup.classList.remove("d-none");
-    }
-  });
-  const btncerrar = document.getElementById("btncierre");
-
-  btncerrar.addEventListener("click", () => {
-    cerrarcontacto();
-    function cerrarcontacto() {
-      popup.classList.add("d-none");
-    }
-  });
-}
+const $alerta = $("#alerta");
 
 /*Buscador de contacto */
 $("#buscar").on("input", function () {
@@ -113,18 +90,26 @@ $(function () {
 
 /* Formula de - balance */
 
+function alerta(mensaje, tipo) {
+    $alerta.removeClass("d-none")
+      .html(`<div class="alert alert-${tipo}" role="alert">
+            ${mensaje} </div>`);
+          setTimeout(() => {
+            $alerta.addClass("d-none").empty();
+          }, 2000)      
+          }
 formEnviar.addEventListener("submit", (evento) => {
   evento.preventDefault();
 
   const montoCont = Number(inputMonto.value);
   let saldo = leerSaldo();
 
-  if (isNaN(montoCont) || montoCont <= 0) {
-    mostrarMensaje("Ingrese un monto válido", "warning");
+  if (isNaN(montoCont) || montoCont <= 0 ) {
+    alerta("Ingrese un monto válido.", "danger");
     return;
   }
   if (montoCont > saldo) {
-    mostrarMensaje("Saldo insuficiente para realizar la operación.", "danger");
+    alerta("Saldo insuficiente para realizar la operación.", "danger");
     return;
   }
 
@@ -137,7 +122,7 @@ formEnviar.addEventListener("submit", (evento) => {
     "transferencia",
     `transferencia enviada a ${contactoselec}: ${montoCont}`,
   );
-  mostrarMensaje("Transferencia realizada");
+  alerta("Transferencia realizada", "success");
   rendermov("all");
 });
 
@@ -161,13 +146,10 @@ lista.addEventListener("click", (e) => {
   document.getElementById("barratransferencia")?.classList.remove("d-none");
 });
 
-/* Transferir a contacto */
 
 /*Selección del contacto */
 
-
 let contactoselec = null;
-
 
   lista.addEventListener("click", (e) => {
     const li = e.target.closest(".list-group-item");
@@ -182,4 +164,4 @@ let contactoselec = null;
     contactoselec =
       li.querySelector(".nombreDeContacto")?.textContent.trim() || "contacto";
     document.getElementById("enviocontacto")?.classList.remove("d-none");
-  });
+  })

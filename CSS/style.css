@@ -37,17 +37,14 @@ main {
     font-weight: bold;
 }
 
-
 .navbar .nav-link:hover{
     color: darkblue;
 }
-
 .navbar span {
     font-size: 30px;
     font-weight: bold;
     margin-left: 30px;
 }
-
 #cerrarSesion {
     border: solid;
     background-color: #1c76fd;
@@ -158,4 +155,10 @@ footer {
     margin: auto;
     text-align: center;
     padding: 15px;
+}
+
+/*Estilos notificaciones*/
+
+.redirect {
+    background-color: rgb(176, 255, 250);
 }
