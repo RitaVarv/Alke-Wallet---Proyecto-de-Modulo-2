@@ -1,164 +1,166 @@
+* {
+  box-sizing: border-box;
 
-:root  {
-    --color-card: #dff5ed;
-    --color-titulos: #79dab1;
-    --color-nav: #1c76fd;
-    --color-footer:#0cb675;
 }
+
+:root {
+  --color-card: #dff5ed;
+  --color-titulos: #79dab1;
+  --color-nav: #1c76fd;
+  --color-footer: #0cb675;
+}
+
 body {
-    padding: 0px;
-    margin-top: 0px;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-    font-family: "Noto Serif", serif;
-    background-image: url("https://4kwallpapers.com/images/wallpapers/soft-gradient-3840x2160-20099.jpg")
-    
-}
-main {
-    flex: 1;
-    width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  font-family: "Noto Serif", serif;
+  background-image: url("https://4kwallpapers.com/images/wallpapers/soft-gradient-3840x2160-20099.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
-.navbar{
-    background-color: var(--color-footer);
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    padding: 5px;
-    text-decoration: none;
-    color: inherit;
+main {
+  flex: 1;
+  width: 100%;
+}
+
+.navbar {
+  background-color: var(--color-footer);
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 5px;
+  text-decoration: none;
+  color: inherit;
 }
 .navbar .nav-link {
-    color: white;
-    font-size: large;
-    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    font-weight: bold;
+  color: white;
+  font-size: large;
+  font-family:
+    "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  font-weight: bold;
 }
 
-.navbar .nav-link:hover{
-    color: darkblue;
+.navbar .nav-link:hover {
+  color: darkblue;
 }
 .navbar span {
-    font-size: 30px;
-    font-weight: bold;
-    margin-left: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-left: 30px;
 }
 #cerrarSesion {
-    border: solid;
-    background-color: #1c76fd;
-    border-width: 1px;
+  border: solid;
+  background-color: #1c76fd;
+  border-width: 1px;
 }
 
 .navbar-toggle {
-    border: none;
-    background-color: transparent;
+  border: none;
+  background-color: transparent;
 }
 
 .card {
-    margin-top: 20px;
-    padding: 20px;
-    max-width: 650px;
-    border-style: solid;
-    border-width: 2px;
-    border-color: #255849;
-    background-color: var(--color-card);
+  margin-top: 20px;
+  padding: 20px;
+  max-width: 650px;
+  width: 100%;
+  border-style: solid;
+  border-width: 2px;
+  border-color: #255849;
+  background-color: var(--color-card);
 }
 
 /*Estilo Login*/
 
 h1 {
-    background-color: var(--color-titulos);
-    font-size: 36px;
-    font-family: "Roboto Flex", sans-serif;
-    text-align: center;
-    padding: 20px;
+  background-color: var(--color-titulos);
+  font-size: 36px;
+  font-family: "Roboto Flex", sans-serif;
+  text-align: center;
+  padding: 20px;
 }
 
 /*Estilo Menu*/
 
 .menu {
-    display: flex;
-    justify-content: space-between;
-    gap: 2px;
-    flex-wrap: nowrap;
-    margin-top: 15px;
+  display: flex;
+  justify-content: space-between;
+  gap: 2px;
+  flex-wrap: wrap;
+  margin-top: 15px;
 }
 
 #infobalance {
-    font-size: 30px;
-    margin: 10px;
+  font-size: 30px;
+  margin: 10px;
 }
 
 #balance {
-    font-weight: bold;
-    font-size: 50px;
+  font-weight: bold;
+  font-size: 50px;
 }
 
 /*Estilo Deposito*/
 
 .infodeposit {
-    text-align: center;
-    font-size: 25px;
-    margin: 10px;
+  text-align: center;
+  font-size: 25px;
+  margin: 10px;
 }
 
 .infodeposit p {
-    font-size: 16px;
-    text-align: start;
-    margin-top: 10px;
+  font-size: 16px;
+  text-align: start;
+  margin-top: 10px;
 }
 
 #mostrarsaldo {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 /* estilo lista de movimientos */
 .list-group-item {
-    border: 1px solid;
-    border-color: black;
-    padding: 16px;
-    list-style: none;
+  border: 1px solid;
+  border-color: black;
+  padding: 16px;
+  list-style: none;
 }
 
 #mensaje {
-    z-index: 200;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-width: 3px;
-    font-size: 30px;
-}
-/*Estilo Send Money*/
-.popup {
-    background-color: var(--color-card);
-    border-style: solid;
-    border-color: rgb(37, 88, 73);
-    border-width: 2px;
-    margin: 3px;
-    z-index: 200;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 800px;
-}
-.popup button {
-    margin-top: 10px;
+  z-index: 200;
+  border-width: 3px;
+  font-size: 30px;
 }
 
 footer {
-    background-color: var(--color-footer);
-    width: 100%;
-    margin: auto;
-    text-align: center;
-    padding: 15px;
+  background-color: var(--color-footer);
+  width: 100%;
+  margin: auto;
+  text-align: center;
+  padding: 15px;
 }
 
 /*Estilos notificaciones*/
 
 .redirect {
-    background-color: rgb(176, 255, 250);
+  background-color: rgb(176, 255, 250);
+}
+
+@media (max-width: 992px) {
+  .menu {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .card {
+    max-width: 95vw;
+    margin: 15px auto;
+    border-radius: 12px;
+    overflow: hidden;
+  }
 }
