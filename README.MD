@@ -50,6 +50,15 @@ AlkeWallet
 ├── utilidades.js
 └── script.js
 
+## Aclaraciones
+
+-Este es un proyecto académico creado para el curso *Talento Digital*, programa *Trainee Front-End* de SENCE (2026).
+-Durante la elaboración se utilizaron los recursos académicos del aula virtual, tutoriales de youtube y ChatGPT como fuente de corrección, resolución de dudas y generación de ejemplos.
+
+## VERSIÓN EN VIVO
+
+https://ritavarv.github.io/Alke-Wallet---Proyecto-de-Modulo-2/
+
 ## INFORMACIÓN DE USUARIO
 
 -email: usuario@ejemplo.com
